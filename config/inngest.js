@@ -78,6 +78,7 @@ export const createUserOrder = inngest.createFunction(
   },
   { event: "order/created" },
   async ({ events }) => {
+
     const orders = events.map((event) => {
       return {
         userId: event.data.userId,
@@ -85,8 +86,8 @@ export const createUserOrder = inngest.createFunction(
         amount: event.data.amount,
         address: event.data.address,
         date: event.data.date,
-      };
-    });
+      }
+    })
 
     await connectDB();
     await Order.insertMany(orders);
