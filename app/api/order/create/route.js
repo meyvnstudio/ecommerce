@@ -9,15 +9,24 @@ export async function POST(request) {
     const { userId } = getAuth(request);
     const { address, items } = await request.json();
 
+    if (!userId) {
+      return NextResponse.json({ success: false, message: "Unauthorized" });
+    }
+
     if (!address || items.length === 0) {
       return NextResponse.json({ success: false, message: "Invalid data" });
     }
 
     // calculate amount using items
-    const amount = await items.reduce(async (acc, item) => {
+    // const amount = await items.reduce(async (acc, item) => {
+    //   const product = await Product.findById(item.product);
+    //   return await acc + product.offerPrice * item.quantity;
+    // }, 0);
+    let amount = 0;
+    for (const item of items) {
       const product = await Product.findById(item.product);
-      return await acc + product.offerPrice * item.quantity;
-    }, 0);
+      amount += product.offerPrice * item.quantity;
+    }
 
     await inngest.send({
       name: "order/created",
