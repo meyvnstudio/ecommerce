@@ -13,7 +13,7 @@
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.8.1",
     "cloudinary": "^2.5.1",
-    "inngest": "^3.31.11",
+    "inngest": "^3.31.12",
     "mongoose": "^8.10.2",
     "next": "15.1.6",
     "react": "^19.0.0",
