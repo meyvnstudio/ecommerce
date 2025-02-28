@@ -8,8 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 const outfit = Outfit({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 export const metadata = {
-  title: "QuickCart - GreatStack",
-  description: "E-Commerce with Next.js ",
+  title: "Rwandanna — Electronics Store",
+  description: "One stop shop for all electronics in Rwanda",
 };
 
 export default function RootLayout({ children }) {
