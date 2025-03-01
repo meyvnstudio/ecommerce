@@ -1,10 +1,10 @@
 import { serve } from "inngest/next";
 import {
   inngest,
-  createUserOrder,
   syncUserCreation,
   syncUserDeletion,
   syncUserUpdation,
+  createUserOrder,
 } from "@/config/inngest";
 
 // Create an API that serves zero functions
